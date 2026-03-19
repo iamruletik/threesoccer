@@ -110,6 +110,7 @@ loop.updatables.push(physicsDebugger)
 
 
 closeButton.addEventListener("click", (event) => {
+    document.querySelector(".instructionButton").style.visibility = "visible"
     penalty.isExiting = true
     penalty.stop()
     cameraControls.dolly(-18, true)

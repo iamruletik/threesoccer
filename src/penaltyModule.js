@@ -367,7 +367,7 @@ export class Penalty {
 
     this.closeButton.style.visibility = "hidden"
     this.instButton.style.visibility = "hidden"
-    this.instMainButton.style.visibility = "visible"
+
     
     this.kickButton.style.visibility = "hidden"
     this.goalCounterContainer.style.visibility = "hidden"
