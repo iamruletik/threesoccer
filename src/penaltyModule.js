@@ -59,6 +59,8 @@ export class Penalty {
     this.penaltyButton = document.querySelector("#penalty")
     this.kickButton = document.querySelector("#kickButton")
     this.closeButton = document.querySelector("#closePenalty")
+    this.instButton = document.querySelector("#instructionSecondButton")
+    this.instMainButton = document.querySelector(".instructionButton")
     this.objectNames = [ 
                             "BottleCap01", "BottleCap02", "BottleCap03", "BottleCap04",  "BottleCap05", "BottleCap06", 
                             "BottleCap07", "BottleCap08", "BottleCap09", "BottleCap10",  "BottleCap11", "BottleCap12", 
@@ -110,6 +112,8 @@ export class Penalty {
     let cameraRest = (event) => {
         this.world.getRigidBody(0).sleep()
         this.closeButton.style.visibility = "visible"
+        this.instButton.style.visibility = "visible"
+        
         this.goalCounterContainer.style.visibility = "visible"
         this.kickButton.style.visibility = "visible"
         this.controls.removeEventListener("rest", cameraRest)
@@ -321,7 +325,7 @@ export class Penalty {
         yoyo: true,
         repeat: -1,
         ease: "none",
-        duration: 0.8
+        duration: 1.6
     }).restart()
 
 
@@ -362,6 +366,9 @@ export class Penalty {
 
 
     this.closeButton.style.visibility = "hidden"
+    this.instButton.style.visibility = "hidden"
+    this.instMainButton.style.visibility = "visible"
+    
     this.kickButton.style.visibility = "hidden"
     this.goalCounterContainer.style.visibility = "hidden"
     this.penaltyButton.style.visibility = "visible"

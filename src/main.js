@@ -42,7 +42,8 @@ const canvas = document.querySelector('canvas.webgl')
 //Renderer
 const renderer = new THREE.WebGLRenderer({ canvas: canvas, powerPreference: "high-performance", encoding: THREE.sRGBEncoding })
 renderer.setSize(window.innerWidth, window.innerHeight)
-renderer.setPixelRatio(window.devicePixelRatio)
+//renderer.setPixelRatio(window.devicePixelRatio)
+renderer.setPixelRatio(1)
 renderer.setClearColor(backgroundColor)
 //renderer.shadowMap.enabled = true
 //renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -88,6 +89,7 @@ loop.start()
 loop.updatables.push(cameraControls)
 
 penaltyButton.addEventListener("click", (event) => {
+    document.querySelector(".instructionButton").style.visibility = "hidden"
     penalty.isExiting = false
     penalty.goalCount = 0
     penalty.init()
@@ -205,4 +207,102 @@ function inactivityTimeout() {
 }
 
 inactivityTimeout()
+
+
+let closeInstructionsButton = document.querySelector(".closeInstButton")
+let instructionContainer = document.querySelector(".instruction")
+let openInstructionsButton = document.querySelector(".instructionButton")
+let nextInstructionsButton = document.querySelector(".nextInstButton")
+let secondInstructionsButton = document.querySelector("#instructionSecondButton")
+
+let isSecondButtonClicked = false
+
+
+closeInstructionsButton.addEventListener("click", (e) => {
+
+    gsap.to(instructionContainer, {
+        autoAlpha: 0
+    })
+
+    if (isSecondButtonClicked == false) {
+
+            gsap.to(openInstructionsButton, {
+                autoAlpha: 1
+            })
+    }
+
+    isSecondButtonClicked = false
+
+}, true)
+
+
+
+openInstructionsButton.addEventListener("click", (e) => {
+
+    gsap.to(instructionContainer, {
+        autoAlpha: 1
+    })
+
+    gsap.to(openInstructionsButton, {
+        autoAlpha: 0
+    })
+
+    gsap.to("#inst1", {
+        autoAlpha: 1
+    })
+
+
+    gsap.to("#inst2", {
+        autoAlpha: 0
+    })
+
+    gsap.to(nextInstructionsButton, {
+        autoAlpha: 1
+    })
+
+
+}, true)
+
+
+secondInstructionsButton.addEventListener("click", (e) => {
+
+    isSecondButtonClicked = true
+
+    gsap.to(instructionContainer, {
+        autoAlpha: 1
+    })
+
+    gsap.to("#inst1", {
+        autoAlpha: 1
+    })
+
+
+    gsap.to("#inst2", {
+        autoAlpha: 0
+    })
+
+    gsap.to(nextInstructionsButton, {
+        autoAlpha: 1
+    })
+
+
+}, true)
+
+
+nextInstructionsButton.addEventListener("click", (e) => {
+
+    gsap.to("#inst1", {
+        autoAlpha: 0
+    })
+
+    gsap.to("#inst2", {
+        autoAlpha: 1
+    })
+
+    gsap.to(nextInstructionsButton, {
+        autoAlpha: 0
+    })
+
+}, true)
+
 
