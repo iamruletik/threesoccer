@@ -90,6 +90,7 @@ loop.updatables.push(cameraControls)
 
 penaltyButton.addEventListener("click", (event) => {
     document.querySelector(".instructionButton").style.visibility = "hidden"
+    showSecondGuideWindow()
     penalty.isExiting = false
     penalty.goalCount = 0
     penalty.init()
@@ -161,10 +162,7 @@ let startScreenTimeline = gsap.timeline()
         }
     }).pause()
 
-startButton.addEventListener("click", (event) => {
-    startButton.play()
-    startScreenTimeline.restart()
-})
+
 
 
 
@@ -307,3 +305,67 @@ nextInstructionsButton.addEventListener("click", (e) => {
 }, true)
 
 
+
+startButton.addEventListener("click", (event) => {
+
+    startButton.play()
+    startScreenTimeline.restart()
+
+    gsap.to(instructionContainer, {
+        autoAlpha: 1
+    })
+
+    gsap.to(openInstructionsButton, {
+        autoAlpha: 0
+    })
+
+    gsap.to(openInstructionsButton, {
+        autoAlpha: 0
+    })
+
+    gsap.to("#inst1", {
+        autoAlpha: 1
+    })
+
+
+    gsap.to("#inst2", {
+        autoAlpha: 0
+    })
+
+    gsap.to(nextInstructionsButton, {
+        autoAlpha: 0
+    })
+
+})
+
+
+function showSecondGuideWindow() {
+
+
+    isSecondButtonClicked = true
+
+    gsap.to(instructionContainer, {
+        autoAlpha: 1
+    })
+
+    gsap.to(openInstructionsButton, {
+        autoAlpha: 0
+    })
+
+    gsap.to(openInstructionsButton, {
+        autoAlpha: 0
+    })
+
+    gsap.to("#inst1", {
+        autoAlpha: 0
+    })
+
+
+    gsap.to("#inst2", {
+        autoAlpha: 1
+    })
+
+    gsap.to(nextInstructionsButton, {
+        autoAlpha: 0
+    })
+}
