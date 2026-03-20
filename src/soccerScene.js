@@ -76,7 +76,7 @@ export class SoccerScene {
         let fieldEmission = this.scene.getObjectByName("SoccerField")
         //fieldEmission.material.toneMapped = false
         //fieldEmission.material.emissive = new THREE.Color(0xFF0600)
-        fieldEmission.material.emissiveIntensity = 15
+        fieldEmission.material.emissiveIntensity = 150
         //Animate Ads Strip
         gsap.to(fieldEmission.material, {
           emissiveIntensity: 0,
