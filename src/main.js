@@ -213,6 +213,7 @@ let closeInstructionsButton = document.querySelector(".closeInstButton")
 let instructionContainer = document.querySelector(".instruction")
 let openInstructionsButton = document.querySelector(".instructionButton")
 let nextInstructionsButton = document.querySelector(".nextInstButton")
+let backInstructionsButton = document.querySelector(".backInstButton")
 let secondInstructionsButton = document.querySelector("#instructionSecondButton")
 
 let isSecondButtonClicked = false
@@ -300,6 +301,30 @@ nextInstructionsButton.addEventListener("click", (e) => {
     })
 
     gsap.to(nextInstructionsButton, {
+        autoAlpha: 0
+    })
+
+    gsap.to(backInstructionsButton, {
+        autoAlpha: 1
+    })
+
+}, true)
+
+backInstructionsButton.addEventListener("click", (e) => {
+
+    gsap.to("#inst1", {
+        autoAlpha: 1
+    })
+
+    gsap.to("#inst2", {
+        autoAlpha: 0
+    })
+
+    gsap.to(nextInstructionsButton, {
+        autoAlpha: 1
+    })
+
+    gsap.to(backInstructionsButton, {
         autoAlpha: 0
     })
 
