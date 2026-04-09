@@ -69,6 +69,7 @@ html,body {
   left: calc(50% - 7em);
   right: 0;
   cursor: pointer;
+  display: none;
 }
 
 .closeInstButton {
@@ -138,6 +139,7 @@ html,body {
   box-shadow: 0 2px 15.7px 0 rgba(0, 0, 0, 0.62), 0 8px 44.2px 0 rgba(222, 9, 9, 0.39), 0 18px 147.8px 0 rgba(183, 0, 0, 0.51), 0 0 34.3px 0 rgba(255, 102, 102, 0.50) inset, 0 0 120.4px 0 rgba(255, 79, 79, 0.57) inset;
   transform: scale(1);
   transition: transform 0.2s ease;
+  display: none;
 }
 
 #penalty:hover {
